@@ -1,0 +1,19 @@
+{
+    "name": "uweaimevan/murugo-notification",
+    "description": "The library murugo-notification allows you to send notification by email, push notification, sms etc",
+    "type": "library",
+    "license": "RwandaBuild",
+    "authors": [
+        {
+            "name": "Uwe Aime Van",
+            "email": "uweaime@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Notifications\\": "src/"
+        }
+    }
+}
