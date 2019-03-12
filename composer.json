@@ -11,10 +11,8 @@
     ],
     "minimum-stability": "dev",
     "require": {
-      "php": ">=7",
-      "illuminate/support": "5.7.x|5.8.x",
-      "symfony/http-foundation": "^4",
-      "symfony/http-kernel": "^4"
+      "php": ">=5",
+      "symfony/thanks": "^1.0"
     },
     "require-dev": {
       "laravel/framework": "^5.7"
