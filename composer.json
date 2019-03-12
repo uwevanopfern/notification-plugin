@@ -2,7 +2,7 @@
     "name": "uweaimevan/murugo-notification",
     "description": "The library murugo-notification allows you to send notification by email, push notification, sms etc",
     "type": "library",
-    "license": "RwandaBuild",
+    "license": "MIT",
     "authors": [
         {
             "name": "Uwe Aime Van",
