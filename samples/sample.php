@@ -12,6 +12,11 @@ use Notifications\HelperClass;
 // Instantiate the above class
 // 1. Call sendWebPushNotification method(function) which  will need content and title as arguments
 echo HelperClass::sendWebPushNotification("I am sample content", "I am sample title");
+//
+echo HelperClass::sendNotificationOnSingleDevice("I am sample content on android",
+    "I am sample title on android", "74343ce7-be99-4853-9ec4-593988c3eac6");
+
+echo HelperClass::sendNotificationOnAllDevices("I am sample content android", "I am sample title android");
 
 
 // Instantiate the above class

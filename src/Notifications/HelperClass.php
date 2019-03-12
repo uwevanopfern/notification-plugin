@@ -51,6 +51,86 @@ class HelperClass
         return $fields;
     }
 
+    public function sendNotificationOnSingleDevice($content, $title, $device){
+
+        $contents = $content;
+
+        $content = array(
+            "en" => $contents
+        );
+
+        $headings = array(
+            "en" => $title
+        );
+
+        $fields = array(
+            'app_id' => "405b375c-1c90-4ad6-94ad-3e792c7be572",
+            'include_player_ids' => array($device),
+            'contents' => $content,
+            'headings' => $headings
+
+        );
+
+        $fields = json_encode($fields);
+
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, "https://onesignal.com/api/v1/notifications");
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+            'Content-Type: application/json; charset=utf-8',
+            'Authorization: Basic MTMyNGFmY2QtY2U5OC00YmRmLWJkNzgtMTRkNTA3NjU4ZmE0'
+        ));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+        curl_setopt($ch, CURLOPT_HEADER, FALSE);
+        curl_setopt($ch, CURLOPT_POST, TRUE);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $fields);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+
+        curl_exec($ch);
+
+        return $fields;
+    }
+
+    public function sendNotificationOnAllDevices($content, $title){
+
+        $contents = $content;
+
+        $content = array(
+            "en" => $contents
+        );
+
+        $headings = array(
+            "en" => $title
+        );
+
+        $fields = array(
+            'app_id' => "405b375c-1c90-4ad6-94ad-3e792c7be572",
+            'included_segments' => array('All'),
+            'contents' => $content,
+            'headings' => $headings
+
+        );
+
+        $fields = json_encode($fields);
+
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, "https://onesignal.com/api/v1/notifications");
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+            'Content-Type: application/json; charset=utf-8',
+            'Authorization: Basic MTMyNGFmY2QtY2U5OC00YmRmLWJkNzgtMTRkNTA3NjU4ZmE0'
+        ));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+        curl_setopt($ch, CURLOPT_HEADER, FALSE);
+        curl_setopt($ch, CURLOPT_POST, TRUE);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $fields);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+
+        curl_exec($ch);
+
+        return $fields;
+    }
+
     public function sendEmailNotification($recipient, $message, $subject, $sender_name, $sender_email){
 
         $headers = "";
