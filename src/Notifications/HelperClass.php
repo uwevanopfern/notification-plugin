@@ -8,6 +8,10 @@
 
 namespace Notifications;
 
+require __DIR__ . '/vendor/autoload.php';
+
+use Twilio\Rest\Client;
+
 
 class HelperClass
 {
@@ -140,5 +144,24 @@ class HelperClass
         $headers .= 'Content-Type: text/html; charset=ISO-8859-1' . "\r\n";
 
         return mail($recipient, $subject, $message, $headers);
+    }
+
+    public function sendSMS($to, $body){
+
+        // Find your Account Sid and Auth Token at twilio.com/console
+        $sid    = "AC729949d85a9734d96a6a920e7e679cd0";
+        $token  = "999eda303b47801f2f0d14c34f237949";
+        $twilio = new Client($sid, $token);
+
+        // "to" parameter is phone number and format of it is 078.....or 072.... 0r 073....
+        $message = $twilio->messages
+            ->create("+25$to", // to
+                array(
+                    "body" => $body,
+                    "from" => "+12019034677" // will be change to company once account is not trial
+                )
+            );
+
+        return $message->sid;
     }
 }
